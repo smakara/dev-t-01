@@ -13,7 +13,7 @@ import org.springframework.remoting.jaxws.JaxWsPortProxyFactoryBean;
 
 import com.econetwireless.epay.business.integrations.api.ChargingPlatform;
 import com.econetwireless.epay.business.integrations.impl.ChargingPlatformImpl;
-import com.econetwireless.in.webservice.IntelligentNetworkService;
+import com.econetwireless.in.soap.service.IntelligentNetworkService;
 
 /**
  * Created by tnyamakura on 17/3/2017.

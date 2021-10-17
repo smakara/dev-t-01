@@ -9,6 +9,8 @@ import com.econetwireless.utils.pojo.INCreditResponse;
  */
 public interface ChargingPlatform {
 
-    INBalanceResponse enquireBalance(final String partnerCode, final String msisdn);
-    INCreditResponse creditSubscriberAccount(final INCreditRequest inCreditRequest);
+	INBalanceResponse enquireBalance(final String partnerCode, final String msisdn);
+
+	INCreditResponse creditSubscriberAccount(final INCreditRequest inCreditRequest);
+
 }

@@ -11,24 +11,25 @@ import com.econetwireless.utils.messages.AirtimeTopupResponse;
 /**
  * Created by tnyamakura on 18/3/2017.
  */
-public class EpayRequestProcessorImpl implements EpayRequestProcessor{
+public class EpayRequestProcessorImpl implements EpayRequestProcessor {
 
-    private EnquiriesService enquiriesService;
-    private CreditsService creditsService;
+	private EnquiriesService enquiriesService;
+	private CreditsService creditsService;
 
-    public EpayRequestProcessorImpl(EnquiriesService enquiriesService, CreditsService creditsService) {
-        this.enquiriesService = enquiriesService;
-        this.creditsService = creditsService;
-    }
+	public EpayRequestProcessorImpl(EnquiriesService enquiriesService, CreditsService creditsService) {
+		this.enquiriesService = enquiriesService;
+		this.creditsService = creditsService;
+	}
 
-    @Override
-    public AirtimeBalanceResponse enquireAirtimeBalance(final String partnerCode, final String msisdn) {
-        return enquiriesService.enquire(partnerCode, MobileNumberUtils.formatMobileToInternationalMode(msisdn));
-    }
+	@Override
+	public AirtimeBalanceResponse enquireAirtimeBalance(final String partnerCode, final String msisdn) {
+		return enquiriesService.enquire(partnerCode, MobileNumberUtils.formatMobileToInternationalMode(msisdn));
+	}
 
-    @Override
-    public AirtimeTopupResponse creditAirtime(final AirtimeTopupRequest airtimeTopupRequest) {
-        airtimeTopupRequest.setMsisdn(MobileNumberUtils.formatMobileToInternationalMode(airtimeTopupRequest.getMsisdn()));
-        return creditsService.credit(airtimeTopupRequest);
-    }
+	@Override
+	public AirtimeTopupResponse creditAirtime(final AirtimeTopupRequest airtimeTopupRequest) {
+		airtimeTopupRequest
+				.setMsisdn(MobileNumberUtils.formatMobileToInternationalMode(airtimeTopupRequest.getMsisdn()));
+		return creditsService.credit(airtimeTopupRequest);
+	}
 }
